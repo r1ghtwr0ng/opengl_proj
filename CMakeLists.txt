@@ -1,12 +1,18 @@
 cmake_minimum_required(VERSION 3.28.1)
 project(OpenGL_Project)
 
-set(CMAKE_CXX_STANDARD 17) # Set the C++ standard
+# Set the C++ standard
+set(CMAKE_CXX_STANDARD 17)
 
-find_package(OpenGL REQUIRED) # Find the OpenGL package
+# Find necessary packages
+find_package(OpenGL REQUIRED)
+find_package(glfw3 REQUIRED)
+
+# Include directories
+include_directories(include)
 
 # Add your source directory
-add_executable(opengl_proj src/main.cpp)
+add_executable(opengl_proj src/main.cpp src/glad.c)
 
-target_link_libraries(opengl_proj ${OPENGL_gl_LIBRARY}) # Link the OpenGL library
-# Add any additional include directories or libraries here
+# Link the libraries
+target_link_libraries(opengl_proj ${OPENGL_gl_LIBRARY} glfw)
