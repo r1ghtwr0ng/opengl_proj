@@ -11,8 +11,14 @@ find_package(glfw3 REQUIRED)
 # Include directories
 include_directories(include)
 
-# Add your source directory
-add_executable(opengl_proj src/main.cpp src/glad.c)
+# Add your source files
+add_executable(opengl_proj 
+    src/main.cpp 
+    src/glad.c
+    src/GLFWInit.cpp
+    src/Renderer.cpp
+    src/InputHandler.cpp
+)
 
 # Link the libraries
 target_link_libraries(opengl_proj ${OPENGL_gl_LIBRARY} glfw)
